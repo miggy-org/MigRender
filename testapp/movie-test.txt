@@ -1,0 +1,42 @@
+# can be used by the calling process to configure the movie
+var width:int = 320
+var height:int = 240
+var frames:int = 30
+var suppressBitmaps:boolean = true
+renderflags (refract)
+
+# scene setup
+script "setup.txt"
+
+# lights
+script "lights-many.txt"
+
+# parent group
+var grp = super.newgroup
+
+# backdrop
+#script "backdrop-slab.txt" grp
+var subgrp = grp.newgroup
+var path:string = "..\models\times.pkg"
+loadtext path "JODI" subgrp "glyph-simple.txt" "b"
+subgrp.center
+subgrp.fit 10 0 0
+subgrp.matrix.translate (0, 0, -5)
+
+# refractive sphere
+var sphere = grp.newsphere
+sphere.radius 4
+sphere.diffuse (1, 1, 1, 1)
+sphere.glow (0, 0, 0, 1)
+sphere.refraction (1, 1, 1, 0.2) 1.2
+sphere.flags (refr)
+
+# move sphere to starting position
+#sphere.matrix.translate (-10, 0, 0)
+
+# assign animations
+anims.load sphere "movie-anim-slide.json"
+
+anims.add subgrp "matrix_translate" 0 1 (0, 0, 5)
+anims.load subgrp "movie-anim-slab.json" 0 1 false false
+anims.add subgrp "matrix_translate" 0 1 (0, 0, -5)

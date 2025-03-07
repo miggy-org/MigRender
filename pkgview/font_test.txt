@@ -1,0 +1,21 @@
+# assumes group "grp", polygon "poly", uvc "uvmin", uvc "uvmax"
+var suffix:string = "t"
+
+poly.extrude 1 true
+
+var poly2 = grp.newpolygon
+poly.dupfaceplate poly2 true
+
+#poly2.extrude 3 true
+
+poly.diffuse (1, 1, 1)
+poly.flags (bbox)
+
+poly2.specular (1, 1, 1)
+poly2.flags (bbox)
+
+#var dmap1:string = "texture1"
+#var dmapindex1 = poly.addcolormap diffuse rgb dmap1
+
+#var ptcenter:pt = (15, 15, -5)
+#poly.applymapping extrusion diffuse dmapindex1 true ptcenter null uvmin uvmax

@@ -1,0 +1,17 @@
+# camera commands
+var zplane:double = 15
+camera.matrix.identity
+camera.matrix.rotatey 180
+camera.matrix.translate (0, 0, zplane)
+#camera.aspect 1.333  # only applies if aspect isn't computed from render target
+camera.aspect 1.778  # only applies if aspect isn't computed from render target
+camera.viewport 10 zplane
+
+# background commands
+bg.colors (1, 0, 0, 1) (0, 0, 0.2, 1) (0, 1, 0, 1)
+#var bgmap = images.load "$IMAGES\earth.jpg" rgb
+#bg.image bgmap fit
+ambient (0.3, 0.3, 0.3)
+
+# global
+sampling 1x

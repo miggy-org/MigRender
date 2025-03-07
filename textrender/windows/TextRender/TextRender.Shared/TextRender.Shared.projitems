@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>d859b89b-f0dd-486b-b4a1-294472c2dadd</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>TextRender</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="$(MSBuildThisFileDirectory)App.xaml">
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="$(MSBuildThisFileDirectory)App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)MiggyParams.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="$(MSBuildThisFileDirectory)Images\brick.jpg" />
+    <Content Include="$(MSBuildThisFileDirectory)Images\marble1.jpg" />
+    <Content Include="$(MSBuildThisFileDirectory)Images\marble2.jpg" />
+    <Content Include="$(MSBuildThisFileDirectory)Images\reflect1.jpg" />
+    <Content Include="$(MSBuildThisFileDirectory)Images\reflect2.jpg" />
+    <Content Include="$(MSBuildThisFileDirectory)Images\wood.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="$(MSBuildThisFileDirectory)Models\arial.pkg" />
+    <Content Include="$(MSBuildThisFileDirectory)Models\backdrop-metal.mdl" />
+    <Content Include="$(MSBuildThisFileDirectory)Models\backdrop-slab.mdl" />
+    <Content Include="$(MSBuildThisFileDirectory)Models\backdrop-smoothslab.mdl" />
+    <Content Include="$(MSBuildThisFileDirectory)Models\calibri.pkg" />
+    <Content Include="$(MSBuildThisFileDirectory)Models\footlight.pkg" />
+    <Content Include="$(MSBuildThisFileDirectory)Models\french.pkg" />
+    <Content Include="$(MSBuildThisFileDirectory)Models\harlow.pkg" />
+    <Content Include="$(MSBuildThisFileDirectory)Models\informal.pkg" />
+    <Content Include="$(MSBuildThisFileDirectory)Models\kunstler.pkg" />
+    <Content Include="$(MSBuildThisFileDirectory)Models\magneto.pkg" />
+    <Content Include="$(MSBuildThisFileDirectory)Models\many-lights.mdl" />
+    <Content Include="$(MSBuildThisFileDirectory)Models\modern.pkg" />
+    <Content Include="$(MSBuildThisFileDirectory)Models\oldenglish.pkg" />
+    <Content Include="$(MSBuildThisFileDirectory)Models\pristina.pkg" />
+    <Content Include="$(MSBuildThisFileDirectory)Models\ravie.pkg" />
+    <Content Include="$(MSBuildThisFileDirectory)Models\single-light.mdl" />
+    <Content Include="$(MSBuildThisFileDirectory)Models\stencil.pkg" />
+    <Content Include="$(MSBuildThisFileDirectory)Models\times.pkg" />
+    <Content Include="$(MSBuildThisFileDirectory)Models\trebuchet.pkg" />
+    <Content Include="$(MSBuildThisFileDirectory)Models\vivaldi.pkg" />
+  </ItemGroup>
+</Project>

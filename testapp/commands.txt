@@ -1,0 +1,140 @@
+camera
+======
+
+camera.matrix.rotatey 180
+camera.matrix.translate (0,0,15)
+camera.viewport 10 15
+
+background
+==========
+
+bg.colors (1,0,0,1) (0,0,0.2,1) (0,1,0,1)
+bg.image title stretch
+ambient (0.1,0.1,0.1)
+
+settings
+========
+
+sampling 1x|edge|object|5x|9x
+
+groups
+======
+
+var newgroup:group
+var newgroup.newsubgroup:group
+var newgroup.newsubgroup.light:ptlight
+var newgroup.newsubgroup.poly:polygon
+
+lights
+======
+
+var mainlt:ptlight
+mainlt.color (1,1,1)
+mainlt.origin (2,-10,0)
+mainlt.highlight 100
+mainlt.shadow true
+
+spheres
+=======
+
+var sphere1:sphere
+sphere1.origin (-4,0,-4)
+sphere1.radius 3
+sphere1.diffuse (0,0,0)
+sphere1.specular (0.7,0.7,0.7)
+
+var sphere2:sphere
+sphere2.origin (0,0,0)
+sphere2.radius 1
+sphere2.diffuse (0,0,0.7)
+sphere2.specular (0.3,0.3,0.3)
+sphere2.matrix.scale (3,3,3)
+sphere2.matrix.translate (1,4,0)
+
+var sphere3:sphere
+sphere3.origin (3,-2,2)
+sphere3.radius 2
+sphere3.diffuse (0.5,0,0.5)
+sphere3.specular (0.2,0.2,0.2)
+
+polygons
+========
+
+var poly:polygon
+poly.diffuse (0.7, 0, 0)
+poly.specular (0.1, 0.1, 0.1)
+poly.flags (shadow|refl|bbox)
+
+var pts:ptarray
+pts.add (-2, -2,  0)
+pts.add ( 2, -2,  0)
+pts.add (-2,  2,  0)
+pts.add ( 2,  2,  0)
+pts.add (-1, -1,  0)
+pts.add ( 1, -1,  0)
+pts.add (-1,  1,  0)
+pts.add ( 1,  1,  0)
+pts.add ( 2, -2,  2)
+pts.add ( 2,  2,  2)
+pts.add (-2,  2,  2)
+pts.add (-2, -2,  2)
+poly.loadlattice pts
+
+var norm:unitvector
+norm.point (0, 0, 1)
+norm.normalize
+
+var inds:intarray
+inds.set [0 1 3 2]
+poly.addpolycurve norm newplane inds NULL 4
+
+var hole:intarray
+hole.set [4 5 7 6]
+poly.addpolycurve norm none hole NULL 4
+
+norm.point (1, 0, 0)
+norm.normalize
+var side1:intarray
+side1.set [1 3 9 8]
+poly.addpolycurve norm newplane side1 NULL 4
+
+norm.point (0, 1, 0)
+norm.normalize
+var side2:intarray
+side2.set [3 2 10 9]
+poly.addpolycurve norm newplane side2 NULL 4
+
+poly.complete
+
+poly.matrix.rotatex -30
+poly.matrix.rotatey 30
+poly.matrix.translate (1, 1, 0)
+
+extrude
+=======
+
+poly.extrude 1 false
+
+var ang:doublearray
+ang.set [90 75 60 45 30 15]
+var len:doublearray
+len.set [4 0.3 0.3 0.3 0.3 0.3]
+poly.extrude ang len true
+
+texturing
+=========
+
+images.load "..\images\wood.jpg" IFMT_RGBA wood
+wood.fillalphafromtransparentcolor r g b dr dg db a
+wood.fillalphafromcolors
+wood.normalizealpha
+var uvs:uvcarray
+uvs.set (0,0) (1,0) (0,1) (1,1)
+var dmap = poly.addcolormap diffuse rgb wood uvs
+var bmap = poly.addbumpmap alpha wood 2 0 uvs
+poly.addtransparencymap alpha wood uvs
+
+poly.addcolormap diffuse rgb wood
+poly.applymapping extrusion diffuse dmap true (0,0,1) null uvmin uvmax
+poly.applymapping extrusion bump bmap true (0,0,1) null uvmin uvmax
+

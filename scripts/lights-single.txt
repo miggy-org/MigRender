@@ -1,0 +1,5 @@
+# light
+var mainlt = super.newdirlight
+mainlt.color (0.4, 0.4, 0.4)
+mainlt.dir (0, 0, -1)
+mainlt.highlight 100

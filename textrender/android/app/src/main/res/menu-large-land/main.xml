@@ -1,0 +1,19 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.jordan.textrender.activity.MainActivity" >
+
+    <item
+        android:id="@+id/action_settings"
+        android:orderInCategory="100"
+        android:title="@string/action_settings"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_save_image"
+        android:orderInCategory="100"
+        android:icon="@drawable/ic_baseline_save_24"
+        android:title="@string/action_save_image"
+        app:showAsAction="ifRoom" />
+
+</menu>

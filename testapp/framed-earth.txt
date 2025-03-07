@@ -1,0 +1,50 @@
+# scene setup
+script "setup.txt"
+
+# lights
+var mainlt = super.newptlight
+mainlt.color (1, 1, 1)
+mainlt.origin (-5, 5, 10)
+mainlt.highlight 100
+mainlt.shadow true
+
+# group
+var grp = super.newgroup
+
+# first polygon
+var poly = grp.newpolygon
+poly.diffuse (0.7, 0.7, 0.7)
+poly.specular (0.5, 0.5, 0.5)
+poly.flags (bbox)
+
+poly.loadlattice [(-5, -3, 0), (5, -3, 0), (5, 3, 0), (-5, 3, 0)]
+poly.addpolycurve (0, 0, 1) (newplane) [0, 1, 2, 3] null
+poly.complete
+
+var ang:doublearray = [ 90, 75, 60, 45, 30, 15, 0, -15, -30 ]
+var len:doublearray = [ 0.4, 0.05, 0.05, 0.05, 0.05, 0.05, 0.1, 0.1, 0.1 ]
+poly.extrude ang len true
+
+# second polygon
+var poly2 = grp.newpolygon
+poly.dupfaceplate poly2 true
+
+# first texture
+var title = images.load "..\images\wood.jpg" rgba wood
+images.title.fillalphafromcolors
+var dmap = poly.addcolormap diffuse rgb wood null
+#var bmap = poly.addbumpmap (alpha|invert) wood 1 0 null
+
+var ptcenter:pt = (0, 0, 1)
+poly.applymapping extrusion diffuse dmap true ptcenter null
+#poly.applymapping extrusion bump bmap true ptcenter null
+
+# second texture
+var title = images.load "..\images\earth.jpg" rgba
+images.title.fillalphafromcolors
+poly2.addcolormap diffuse rgb title [(0, 0), (1, 0), (1, 1), (0, 1)]
+poly2.addbumpmap alpha title 1 0 [(0, 0), (1, 0), (1, 1), (0, 1)]
+
+# rotate
+#grp.matrix.rotatez 15
+grp.matrix.rotatex -15

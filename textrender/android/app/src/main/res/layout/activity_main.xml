@@ -1,0 +1,66 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/placeholder"
+    android:orientation="vertical"
+    android:background="@drawable/main_background"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:baselineAligned="false">
+
+    <FrameLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3"
+        tools:context="com.jordan.textrender.activity.MainActivity"
+        tools:ignore="MergeRootFrame" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal" >
+        <view class="com.jordan.textrender.activity.MainActivity$MainPreview"
+            android:id="@+id/preview"
+            android:padding="2dp"
+            android:background="@drawable/shape_button_rounded"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:layout_margin="5dp"
+            android:contentDescription="@string/preview_image" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical" >
+            <Button
+                style="@style/MainButtons"
+                android:id="@+id/resolutionBtn"
+                android:layout_marginVertical="5dp"
+                android:layout_marginHorizontal="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="@string/options"
+                android:onClick="onChangeResolution"
+                />
+            <Button
+                style="@style/MainButtons"
+                android:id="@+id/renderBtn"
+                android:layout_marginVertical="5dp"
+                android:layout_marginHorizontal="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="@string/render"
+                android:onClick="onRender"
+                />
+
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

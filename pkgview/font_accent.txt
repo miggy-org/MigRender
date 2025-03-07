@@ -1,0 +1,54 @@
+# assumes group "grp", polygon "poly", uvc "uvmin", uvc "uvmax"
+var suffix:string = "a"
+
+var ang:doublearray = [ 180, 90 ]
+var len:doublearray = [ 2, 0.4 ]
+poly.extrude ang len true
+
+var poly2 = grp.newpolygon
+poly.dupfaceplate poly2 true
+
+poly2.extrude 6 true
+
+var poly3 = grp.newpolygon
+poly2.dupfaceplate poly3 true
+
+var ang:doublearray = [ 60, 30 ]
+var len:doublearray = [ 1, 1 ]
+poly3.extrude ang len true
+
+var poly4 = grp.newpolygon
+poly3.dupfaceplate poly4 true
+
+poly.diffuse (1, 1, 1)
+poly.specular (0, 0, 0)
+poly.flags (bbox)
+poly.meta fixedProps true
+
+poly2.diffuse (0, 0, 0)
+poly2.specular (1, 1, 1)
+poly2.reflection (1, 1, 1)
+poly2.flags (bbox)
+
+poly3.diffuse (1, 1, 1)
+poly3.specular (0, 0, 0)
+poly3.flags (bbox)
+poly3.meta fixedProps true
+
+poly4.diffuse (1, 1, 1)
+poly4.specular (0, 0, 0)
+poly4.flags (bbox)
+
+var dmap1:string = "texture1"
+var dmap2:string = "texture2"
+var rmap:string = "reflect"
+
+var dmapindex1 = poly.addcolormap diffuse rgb dmap1
+poly2.addreflectionmap rgb rmap
+var dmapindex2 = poly3.addcolormap diffuse rgb dmap1
+var dmapindex3 = poly4.addcolormap diffuse rgb dmap2
+
+var ptcenter:pt = (15, 15, -5)
+poly.applymapping extrusion diffuse dmapindex1 true ptcenter null uvmin uvmax
+poly3.applymapping extrusion diffuse dmapindex2 true ptcenter null uvmin uvmax
+poly4.applymapping projection diffuse dmapindex3 true ptcenter null uvmin uvmax

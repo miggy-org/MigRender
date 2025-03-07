@@ -1,0 +1,29 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/placeholder"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/gears"
+    android:baselineAligned="false">
+
+    <view class="com.jordan.textrender.activity.BackgroundActivity$BackgroundPreview"
+        android:id="@+id/preview"
+        android:padding="2dp"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_margin="5dp"
+        android:src="@drawable/shape_grey_rectangle"
+        android:contentDescription="@string/preview_image" />
+
+    <FrameLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3"
+        tools:context="com.jordan.textrender.activity.BackgroundActivity"
+        tools:ignore="MergeRootFrame" />
+
+</LinearLayout>

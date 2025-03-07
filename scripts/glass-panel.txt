@@ -1,0 +1,57 @@
+# scene setup
+script "setup.txt"
+
+# lights
+var mainlt = super.newptlight
+mainlt.color (1, 1, 1)
+mainlt.origin (-5, 5, 10)
+mainlt.highlight 100
+mainlt.shadow true
+
+# group
+var grp = super.newgroup
+
+# background polygon
+var bgpoly = grp.newpolygon
+bgpoly.diffuse (1, 1, 1)
+bgpoly.flags (bbox)
+bgpoly.loadlattice [(-10, -6, 0), (10, -6, 0), (10, 6, 0), (-10, 6, 0)]
+bgpoly.addpolycurve (0, 0, 1) (newplane) [0, 1, 2, 3] null
+bgpoly.complete
+var title = images.load "$IMAGES\earth.jpg" rgb
+bgpoly.addcolormap diffuse rgb title [(0, 0), (1, 0), (1, 1), (0, 1)]
+bgpoly.matrix.translate (0, 0, -20)
+
+var diffuse:color = (0.3, 0.3, 0.3)
+var specular:color = (0.7, 0.7, 0.7)
+var refract:color = (0.7, 0.7, 0.7, 0.5)
+var refractIndex:double = 1.1
+
+# polygon
+var poly = grp.newpolygon
+poly.diffuse diffuse
+poly.specular specular
+poly.refraction refract refractIndex
+poly.flags (bbox|refl|refr)
+
+poly.loadlattice [(-5, -3, 0), (5, -3, 0), (5, 3, 0), (-5, 3, 0)]
+poly.addpolycurve (0, 0, 1) (newplane) [0, 1, 2, 3] null
+poly.complete
+
+poly.extrude 1 false
+
+# polygon2
+#var poly2 = grp.newpolygon
+#poly2.diffuse diffuse
+#poly2.specular specular
+#poly2.refraction refract refractIndex
+#poly2.flags (bbox|refr|refl)
+
+#poly2.loadlattice [(-5, -3, -1), (5, -3, -1), (5, 3, -1), (-5, 3, -1)]
+#poly2.addpolycurve (0, 0, 1) (newplane) [0, 1, 2, 3] null
+#poly2.complete
+
+# rotate
+var rotate:double = -30
+poly.matrix.rotatex rotate
+#poly2.matrix.rotatex rotate

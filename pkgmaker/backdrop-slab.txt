@@ -1,0 +1,30 @@
+# assumes group "grp"
+var outputFileName:string = "..\models\backdrop_slab.mdl"
+
+var poly = grp.newpolygon
+poly.diffuse (0.7, 0.7, 0.7)
+poly.specular (0.5, 0.5, 0.5)
+poly.flags (shadow|refl|bbox)
+
+var pts:ptarray
+pts.add (-7, -3, 0)
+pts.add ( 7, -3, 0)
+pts.add ( 7,  3, 0)
+pts.add (-7,  3, 0)
+poly.loadlattice pts
+
+var norm:unitvector = (0, 0, 1)
+poly.addpolycurve norm (newplane) [0, 1, 2, 3] null
+poly.complete
+
+poly.extrude 1 false
+
+var dmap:string = "bd-texture1"
+var dmapindex = poly.addcolormap diffuse rgb dmap null
+var bmapindex = poly.addbumpmap (alpha|invert) dmap 1 0 null
+
+var ptcenter:pt = (0, 0, 1)
+poly.applymapping extrusion diffuse dmapindex true ptcenter null
+poly.applymapping extrusion bump bmapindex true ptcenter null
+
+poly.matrix.translate (0, 0, -2)

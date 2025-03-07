@@ -1,0 +1,30 @@
+# can be used by the calling process to configure the movie
+var width:int = 320
+var height:int = 240
+var frames:int = 150
+var suppressBitmaps:boolean = false
+renderflags (all)
+#sampling 5x
+
+# scene setup
+script "setup.txt"
+
+# lights
+script "lights-many.txt"
+
+# parent group
+var grp = super.newgroup
+
+# text group
+var path:string = "$MODELS\arial.pkg"
+loadtext path "B" grp "glyph-bevel.txt" ""
+grp.center
+grp.fit 5 0 0
+
+# position the text and slab
+#grp.matrix.rotatez 30
+#grp.matrix.rotatex -30
+#grp.matrix.translate (0.5, 2, 0)
+
+# assign animations
+anims.load grp "movie-anim-basic.json"

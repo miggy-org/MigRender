@@ -1,0 +1,39 @@
+# assumes group "grp"
+var outputFileName:string = "..\models\backdrop_frame.mdl"
+
+# second polygon (the frame)
+var poly = grp.newpolygon
+poly.diffuse (0.7, 0.7, 0.7)
+poly.specular (0.5, 0.5, 0.5)
+poly.flags (shadow|bbox)
+
+# a square at the largest in both directions, text-render will scale down to match aspect ratio of chosen image
+poly.loadlattice [(-7, -7, 0), (7, -7, 0), (7, 7, 0), (-7, 7, 0)]
+poly.addpolycurve (0, 0, 1) (newplane) [0, 1, 2, 3] null
+poly.complete
+
+var ang:doublearray = [ 90, 75, 60, 45, 30, 15, 0, -15, -30 ]
+var len:doublearray = [ 0.4, 0.05, 0.05, 0.05, 0.05, 0.05, 0.1, 0.1, 0.1 ]
+poly.extrude ang len true
+
+# second polygon (the picture)
+var poly2 = grp.newpolygon
+poly.dupfaceplate poly2 true
+poly2.meta fixedProps true
+
+# first texture
+var dmap:string = "bd-texture1"
+var dmapindex = poly.addcolormap diffuse rgb dmap null
+#var bmapindex = poly.addbumpmap (alpha|invert) dmap 1 0 null
+
+var ptcenter:pt = (0, 0, 1)
+poly.applymapping extrusion diffuse dmapindex true ptcenter null
+#poly.applymapping extrusion bump bmapindex true ptcenter null
+
+# second texture
+var umap:string = "user-image"
+poly2.addcolormap diffuse rgb umap [(0, 0), (1, 0), (1, 1), (0, 1)]
+
+#poly.matrix.translate (0, 0, -2)
+#poly2.matrix.translate (0, 0, -2)
+grp.matrix.translate (0, 0, -2)

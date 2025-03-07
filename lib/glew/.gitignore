@@ -1,0 +1,13 @@
+.vs
+Debug
+doc
+bin
+
+# Compiled Dynamic libraries
+*.dll
+
+# Executables
+*.exe
+*.out
+*.app
+*.bat

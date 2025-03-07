@@ -1,0 +1,36 @@
+#.grp1.grp2.matrix.translate (0, 0, 1)
+
+# scene setup
+script "setup.txt"
+
+# lights
+var mainlt = super.newptlight
+mainlt.color (1, 1, 1)
+mainlt.origin (-5, 5, 10)
+mainlt.highlight 100
+mainlt.shadow true
+
+# group
+var grp = super.newgroup
+
+var path:string = "$MODELS\arial.pkg"
+#var delim:string = "-"
+
+loadtext path "hello" grp "glyph-test.txt"
+
+#var char:string = "a"
+#char.append delim
+#var letter = loadpackage path char grp
+
+#var char:string = "b"
+#char.append delim
+#var letter = loadpackage path char grp
+#letter.matrix.translate (30, 0, 0)
+
+grp.center
+grp.matrix.scale (0.1, 0.1, 0.2)
+grp.matrix.rotatex -30
+
+#.grp1.grp2.matrix.translate (0, 0, 5)
+#.grp1.grp2.obj1.matrix.translate (0, 0, 5)
+#var obj = .grp1.grp2

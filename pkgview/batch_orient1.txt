@@ -1,0 +1,40 @@
+# assumes group "grp"
+#grp.matrix.rotatez 30
+grp.matrix.rotatex -15
+grp.matrix.rotatey 30
+grp.matrix.translate (0, 0, 8)
+
+# camera commands
+camera.matrix.identity
+camera.matrix.rotatey 180
+camera.matrix.translate (0, 0, 15)
+camera.viewport 10 15
+
+# background commands
+#bg.colors (0.3, 0, 0, 1) (0, 0, 0.1, 1) (0, 0.5, 0, 1)
+bg.colors (1, 0, 0, 1) (0, 0, 0.2, 1) (0, 1, 0, 1)
+ambient (0.35, 0.35, 0.35) # not a bg command, but whatever
+
+# light1
+var mainlt1 = grp.newptlight
+mainlt1.color (0.4, 0.4, 0.4)
+mainlt1.origin (5, 8, 10)
+mainlt1.highlight 100
+mainlt1.shadow true true 3
+
+# light2
+var mainlt2 = grp.newptlight
+mainlt2.color (0.3, 0.3, 0.3)
+mainlt2.origin (-5, 0, 10)
+mainlt2.highlight 100
+mainlt2.shadow true true 3
+
+# light3
+var mainlt3 = grp.newptlight
+mainlt3.color (0.3, 0.3, 0.3)
+mainlt3.origin (-3, 8, 5)
+mainlt3.highlight 100
+mainlt3.shadow true true 3
+
+# global
+sampling 1x

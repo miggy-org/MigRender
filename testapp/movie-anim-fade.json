@@ -1,0 +1,9 @@
+{
+  "type": "model_fade",
+  "interpolation": "spline",
+  "bias": 0.8,
+  "beginTime": 0,
+  "endTime": 1,
+  "beginValue": 1,
+  "endValue": 0
+}

@@ -1,0 +1,18 @@
+{
+  "type": "matrix_translate",
+  "interpolation": "linear",
+  "beginTime": 0,
+  "endTime": 1,
+  "beginValue": {
+    "class": "CPt",
+	"x": -10,
+	"y": 0,
+	"z": 0
+  },
+  "endValue": {
+    "class": "CPt",
+	"x": 10,
+	"y": 0,
+	"z": 0
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "type": "model_fog",
+  "interpolation": "linear",
+  "bias": 0.8,
+  "beginTime": 0,
+  "endTime": 1,
+  "beginValue": 0,
+  "endValue": 1
+}

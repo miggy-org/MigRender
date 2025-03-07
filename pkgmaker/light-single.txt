@@ -1,0 +1,9 @@
+# assumes group "grp"
+var outputFileName:string = "..\models\lights_single.mdl"
+
+# light
+var mainlt = grp.newptlight
+mainlt.color (0.4, 0.4, 0.4)
+mainlt.origin (5, 8, 10)
+mainlt.highlight 100
+mainlt.shadow true true 3

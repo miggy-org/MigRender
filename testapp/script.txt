@@ -1,0 +1,2 @@
+# load a test script
+script "refract-test.txt"

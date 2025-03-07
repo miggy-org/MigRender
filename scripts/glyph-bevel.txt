@@ -1,0 +1,22 @@
+# assumes group "grp", polygon "poly", uvc "uvmin", uvc "uvmax"
+var suffix:string = ""
+
+var ang:doublearray = [ 90, 75, 60, 45, 30, 15 ]
+var len:doublearray = [ 5, 0.3, 0.3, 0.3, 0.3, 0.3 ]
+poly.extrude ang len true
+
+poly.diffuse (1, 1, 1)
+poly.specular (0.3, 0.3, 0.3)
+poly.reflection (1, 1, 1)
+poly.flags (bbox)
+
+var dmap:string = "texture1"
+var rmap:string = "reflect"
+var dmapindex = poly.addcolormap diffuse rgb dmap
+poly.addreflectionmap rgb rmap
+
+var ptcenter:pt = (15, 15, -5)
+poly.applymapping extrusion diffuse dmapindex true ptcenter null uvmin uvmax
+
+images.load "$IMAGES\wood.jpg" none "texture1"
+images.load "$IMAGES\reflect2.jpg" none "reflect"

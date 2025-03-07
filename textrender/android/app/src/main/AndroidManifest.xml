@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.jordan.textrender">
+
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.TextRender"
+        tools:targetApi="31">
+        <activity
+            android:name=".activity.MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.OptionsActivity$FontOptionsActivity"
+            android:exported="false"
+            android:label="@string/change_font"
+            android:parentActivityName=".activity.MainActivity" />
+        <activity
+            android:name=".activity.OptionsActivity$MaterialOptionsActivity"
+            android:exported="false"
+            android:label="@string/change_material"
+            android:parentActivityName=".activity.MainActivity" />
+        <activity
+            android:name=".activity.OptionsActivity$BackdropOptionsActivity"
+            android:exported="false"
+            android:label="@string/change_backdrop"
+            android:parentActivityName=".activity.MainActivity" />
+        <activity
+            android:name=".activity.OptionsActivity$LightingOptionsActivity"
+            android:exported="false"
+            android:label="@string/change_lighting"
+            android:parentActivityName=".activity.MainActivity" />
+        <activity
+            android:name=".activity.OptionsActivity$CameraOptionsActivity"
+            android:exported="false"
+            android:label="@string/change_orientation"
+            android:parentActivityName=".activity.MainActivity" />
+        <activity
+            android:name=".activity.RenderActivity"
+            android:exported="false"
+            android:label="@string/title_activity_render"
+            android:launchMode="singleTop"
+            android:parentActivityName=".activity.MainActivity" />
+        <activity
+            android:name=".activity.BackgroundActivity"
+            android:exported="false"
+            android:label="@string/title_activity_background"
+            android:parentActivityName=".activity.MainActivity" />
+        <service
+            android:name=".service.RenderService"
+            android:exported="false"
+            android:description="@string/service_description" />
+        <receiver
+            android:name=".service.RenderService$NotificationBroadcastReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="STOP_RENDER" />
+            </intent-filter>
+        </receiver>
+    </application>
+
+</manifest>

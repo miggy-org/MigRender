@@ -1,0 +1,27 @@
+# can be used by the calling process to configure the movie
+var width:int = 320
+var height:int = 240
+var frames:int = 30
+
+# scene setup
+script "setup.txt"
+
+# lights
+var mainlt = super.newptlight
+mainlt.color (1, 1, 1)
+mainlt.origin (-5, 5, 10)
+mainlt.highlight 100
+mainlt.shadow true
+
+# group
+var grp = super.newgroup
+
+var path:string = "$MODELS\arial.pkg"
+loadtext path "B" grp "glyph-simple.txt"
+
+grp.center
+grp.fit 0 6 0
+#grp.matrix.scale (1, 1, 2)
+#grp.matrix.rotatex -30
+
+anims.load grp "movie-anim-basic.json"

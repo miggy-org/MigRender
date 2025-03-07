@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <RadioGroup
+        android:id="@+id/group"
+        android:layout_margin="10dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+        <RadioButton
+            android:id="@+id/radioColors"
+            android:layout_margin="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:text="@string/colors"
+            android:onClick="onRadioButtonClicked"/>
+        <RadioButton
+            android:id="@+id/radioImage"
+            android:layout_margin="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:text="@string/image"
+            android:onClick="onRadioButtonClicked"/>
+        <RadioButton
+            android:id="@+id/radioTransparent"
+            android:layout_margin="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:text="@string/transparent"
+            android:onClick="onRadioButtonClicked"/>
+    </RadioGroup>
+
+    <Button
+        style="@style/MainButtons"
+        android:id="@+id/selectImage"
+        android:layout_marginHorizontal="40dp"
+        android:layout_marginVertical="20dp"
+        android:layout_below="@id/group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:text="@string/choose"
+        android:onClick="onImageClicked"
+        android:visibility="invisible"/>
+    <Button
+        style="@style/MainButtons"
+        android:id="@+id/selectScale"
+        android:layout_toEndOf="@id/selectImage"
+        android:layout_marginHorizontal="40dp"
+        android:layout_marginVertical="20dp"
+        android:layout_below="@id/group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:text="@string/stretch"
+        android:onClick="onScaleClicked"
+        android:visibility="invisible"/>
+
+    <Spinner
+        android:id="@+id/spinnerColors"
+        android:layout_marginHorizontal="20dp"
+        android:layout_alignTop="@+id/colorMiddle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <Button
+        android:id="@+id/colorTop"
+        android:layout_width="100dp"
+        android:layout_height="60dp"
+        android:layout_below="@id/group"
+        android:layout_toEndOf="@id/spinnerColors"
+        android:layout_marginVertical="10dp"
+        android:layout_marginHorizontal="20dp"
+        android:onClick="onColorClicked" />
+    <Button
+        android:id="@+id/colorMiddle"
+        android:layout_width="100dp"
+        android:layout_height="60dp"
+        android:layout_below="@id/colorTop"
+        android:layout_toEndOf="@id/spinnerColors"
+        android:layout_marginVertical="10dp"
+        android:layout_marginHorizontal="20dp"
+        android:onClick="onColorClicked" />
+    <Button
+        android:id="@+id/colorBottom"
+        android:layout_width="100dp"
+        android:layout_height="60dp"
+        android:layout_below="@id/colorMiddle"
+        android:layout_toEndOf="@id/spinnerColors"
+        android:layout_marginVertical="10dp"
+        android:layout_marginHorizontal="20dp"
+        android:onClick="onColorClicked" />
+
+    <Button
+        style="@style/MainButtons"
+        android:id="@+id/sizeBottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/colorBottom"
+        android:layout_margin="20dp"
+        android:padding="20dp"
+        android:text="@string/render_size_small"
+        android:textSize="20sp"
+        android:onClick="onSizeClicked"/>
+</RelativeLayout>

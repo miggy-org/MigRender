@@ -1,0 +1,14 @@
+# assumes group "grp", polygon "poly", uvc "uvmin", uvc "uvmax"
+var suffix:string = "m"
+
+var ang:doublearray = [ 150, 120, 90, 60, 30 ]
+var len:doublearray = [ 1, 1, 6, 1, 1 ]
+poly.extrude ang len true
+
+poly.diffuse (0.1, 0.1, 0.1)
+poly.specular (1, 1, 1)
+poly.reflection (1, 1, 1)
+poly.flags (bbox)
+
+var rmap:string = "reflect"
+poly.addreflectionmap rgb rmap

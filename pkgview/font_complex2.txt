@@ -1,0 +1,33 @@
+# assumes group "grp", polygon "poly", uvc "uvmin", uvc "uvmax"
+var suffix:string = "c2"
+
+var ang:doublearray = [ 90, 0 ]
+var len:doublearray = [ 4, 1 ]
+poly.extrude ang len true
+
+var poly2 = grp.newpolygon
+poly.dupfaceplate poly2 true
+
+#var ang2:doublearray = [ 60, 30 ]
+#var len2:doublearray = [ 0.3, 0.3 ]
+poly2.extrude 1 true
+
+poly.diffuse (1, 1, 1)
+poly.specular (0.2, 0.2, 0.2)
+poly.flags (bbox)
+poly.meta fixedProps true
+
+poly2.diffuse (0.2, 0.2, 0.2)
+poly2.specular (1, 1, 1)
+poly2.reflection (1, 1, 1)
+poly2.flags (bbox)
+#poly2.meta fixedProps true
+
+var dmap:string = "texture1"
+var rmap:string = "reflect"
+var dmapindex = poly.addcolormap diffuse rgb dmap
+#poly.addreflectionmap rgb rmap
+poly2.addreflectionmap rgb rmap
+
+var ptcenter:pt = (15, 15, -5)
+poly.applymapping extrusion diffuse dmapindex true ptcenter null uvmin uvmax

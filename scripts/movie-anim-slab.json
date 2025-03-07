@@ -1,0 +1,9 @@
+{
+  "type": "matrix_rotate_x",
+  "interpolation": "spline",
+  "bias": 3,
+  "beginTime": 0,
+  "endTime": 1,
+  "beginValue": -30,
+  "endValue": 0
+}

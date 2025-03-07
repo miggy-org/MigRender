@@ -1,0 +1,23 @@
+# assumes group "grp"
+var outputFileName:string = "..\models\lights_many.mdl"
+
+# light1
+var mainlt1 = grp.newptlight
+mainlt1.color (0.4, 0.4, 0.4)
+mainlt1.origin (5, 8, 10)
+mainlt1.highlight 100
+mainlt1.shadow true true 3
+
+# light2
+var mainlt2 = grp.newptlight
+mainlt2.color (0.3, 0.3, 0.3)
+mainlt2.origin (-5, 0, 10)
+mainlt2.highlight 100
+mainlt2.shadow true true 3
+
+# light3
+var mainlt3 = grp.newptlight
+mainlt3.color (0.3, 0.3, 0.3)
+mainlt3.origin (-3, 8, 5)
+mainlt3.highlight 100
+mainlt3.shadow true true 3

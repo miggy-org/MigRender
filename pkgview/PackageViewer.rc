@@ -1,0 +1,210 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#define APSTUDIO_HIDDEN_SYMBOLS
+#include "windows.h"
+#undef APSTUDIO_HIDDEN_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (United States) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_PACKAGEVIEWER       ICON                    "PackageViewer.ico"
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDC_PACKAGEVIEWER MENU
+BEGIN
+    POPUP "&File"
+    BEGIN
+        MENUITEM "E&xit",                       IDM_EXIT
+    END
+    POPUP "&Help"
+    BEGIN
+        MENUITEM "&About ...",                  IDM_ABOUT
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Accelerator
+//
+
+IDC_PACKAGEVIEWER ACCELERATORS
+BEGIN
+    "?",            IDM_ABOUT,              ASCII,  ALT
+    "/",            IDM_ABOUT,              ASCII,  ALT
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOG 22, 17, 230, 75
+STYLE DS_SETFONT | DS_MODALFRAME | WS_CAPTION | WS_SYSMENU
+CAPTION "About"
+FONT 8, "System"
+BEGIN
+    ICON            IDI_PACKAGEVIEWER,IDC_MYICON,14,9,16,16
+    LTEXT           "PackageViewer",IDC_STATIC,49,10,119,8,SS_NOPREFIX
+    LTEXT           "Copyright (C) 2007",IDC_STATIC,49,20,119,8
+    DEFPUSHBUTTON   "OK",IDOK,195,6,30,11,WS_GROUP
+END
+
+IDD_PACKAGEVIEWER_DIALOG DIALOGEX 0, 0, 481, 313
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_MINIMIZEBOX | WS_MAXIMIZEBOX | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "MigRender Package Viewer"
+FONT 8, "MS Shell Dlg", 0, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "Quit",IDOK,436,290,38,16
+    PUSHBUTTON      "Render",IDC_RENDER,393,290,38,16
+    PUSHBUTTON      "Batch",IDC_BATCH,349,290,38,16
+    CONTROL         "",IDC_OUTPUT,"Static",SS_BITMAP | SS_CENTERIMAGE,7,7,467,275
+    PUSHBUTTON      "Package",IDC_PACKAGE,7,290,38,16
+    EDITTEXT        IDC_TEXT,92,290,65,16,ES_AUTOHSCROLL
+    PUSHBUTTON      "Textures",IDC_TEXTURES,289,290,38,16
+    EDITTEXT        IDC_SUFFIX,160,290,28,16,ES_AUTOHSCROLL
+    PUSHBUTTON      "Backdrop",IDC_BACKDROP,205,290,38,16
+    PUSHBUTTON      "Lights",IDC_LIGHTS,247,290,38,16
+    PUSHBUTTON      "Script",IDC_SCRIPT,50,290,38,16
+END
+
+IDD_TEXTURES_DIALOG DIALOGEX 0, 0, 201, 232
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "Texture Maps"
+FONT 8, "MS Shell Dlg", 0, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "Done",IDOK,153,209,40,16
+    CONTROL         "Texture 1",IDC_ENABLE_TEXTURE1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,23,22,43,10
+    CONTROL         "Reflect",IDC_ENABLE_REFLECT,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,23,64,43,10
+    PUSHBUTTON      "Change",IDC_CHANGE_TEXTURE1,134,20,44,15,WS_DISABLED
+    PUSHBUTTON      "Change",IDC_CHANGE_REFLECT,134,62,44,15,WS_DISABLED
+    EDITTEXT        IDC_TEXTURE1,73,20,52,14,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_REFLECT,73,62,52,14,ES_AUTOHSCROLL | ES_READONLY
+    GROUPBOX        "Text",IDC_STATIC,9,7,179,80
+    CONTROL         "Texture 2",IDC_ENABLE_TEXTURE2,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,23,43,43,10
+    PUSHBUTTON      "Change",IDC_CHANGE_TEXTURE2,134,41,44,15,WS_DISABLED
+    EDITTEXT        IDC_TEXTURE2,73,41,52,14,ES_AUTOHSCROLL | ES_READONLY
+    GROUPBOX        "Backdrop",IDC_STATIC,9,95,179,106
+    CONTROL         "Texture 1",IDC_ENABLE_BDTEXTURE1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,23,111,43,10
+    PUSHBUTTON      "Change",IDC_CHANGE_BDTEXTURE1,134,109,44,15,WS_DISABLED
+    EDITTEXT        IDC_BDTEXTURE1,73,109,52,14,ES_AUTOHSCROLL | ES_READONLY
+    CONTROL         "Texture 2",IDC_ENABLE_BDTEXTURE2,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,23,132,43,10
+    PUSHBUTTON      "Change",IDC_CHANGE_BDTEXTURE2,133,130,44,15,WS_DISABLED
+    EDITTEXT        IDC_BDTEXTURE2,73,130,52,14,ES_AUTOHSCROLL | ES_READONLY
+    CONTROL         "Reflect",IDC_ENABLE_BDREFLECT,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,23,152,43,10
+    PUSHBUTTON      "Change",IDC_CHANGE_BDREFLECT,133,151,44,15,WS_DISABLED
+    EDITTEXT        IDC_BDREFLECT,73,151,52,14,ES_AUTOHSCROLL | ES_READONLY
+    CONTROL         "User",IDC_ENABLE_USERIMAGE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,23,172,43,10
+    PUSHBUTTON      "Change",IDC_CHANGE_USERIMAGE,133,171,44,15,WS_DISABLED
+    EDITTEXT        IDC_USERIMAGE,73,171,52,14,ES_AUTOHSCROLL | ES_READONLY
+END
+
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#define APSTUDIO_HIDDEN_SYMBOLS\r\n"
+    "#include ""windows.h""\r\n"
+    "#undef APSTUDIO_HIDDEN_SYMBOLS\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO
+BEGIN
+    IDD_PACKAGEVIEWER_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 474
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 306
+    END
+
+    IDD_TEXTURES_DIALOG, DIALOG
+    BEGIN
+        RIGHTMARGIN, 200
+        BOTTOMMARGIN, 225
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDS_APP_TITLE           "PackageViewer"
+    IDC_PACKAGEVIEWER       "PACKAGEVIEWER"
+END
+
+#endif    // English (United States) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

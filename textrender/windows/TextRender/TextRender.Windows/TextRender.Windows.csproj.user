@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <UseSimulator>true</UseSimulator>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <UseSimulator>false</UseSimulator>
+    <EnableUnmanagedDebugging>true</EnableUnmanagedDebugging>
+    <RemoteDebugMachine>Lakeshire</RemoteDebugMachine>
+    <UseAuthentication>true</UseAuthentication>
+    <RemoteDebugEnabled>false</RemoteDebugEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <UseSimulator>false</UseSimulator>
+    <RemoteDebugMachine>LAPTOP-9Q96B48T</RemoteDebugMachine>
+    <UseAuthentication>true</UseAuthentication>
+    <RemoteDebugEnabled>false</RemoteDebugEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|ARM'">
+    <RemoteDebugMachine>Lakeshire</RemoteDebugMachine>
+    <UseAuthentication>true</UseAuthentication>
+    <RemoteDebugEnabled>false</RemoteDebugEnabled>
+    <UseSimulator>true</UseSimulator>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <RemoteDebugMachine>DESKTOP-2VPRS1U</RemoteDebugMachine>
+    <UseAuthentication>true</UseAuthentication>
+    <RemoteDebugEnabled>false</RemoteDebugEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <RemoteDebugMachine>DESKTOP-2VPRS1U</RemoteDebugMachine>
+    <UseAuthentication>true</UseAuthentication>
+    <RemoteDebugEnabled>true</RemoteDebugEnabled>
+  </PropertyGroup>
+</Project>

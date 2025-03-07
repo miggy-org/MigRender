@@ -1,0 +1,28 @@
+# assumes group "grp"
+var outputFileName:string = "..\models\backdrop_metal.mdl"
+
+var poly = grp.newpolygon
+poly.diffuse (0.2, 0.2, 0.2)
+poly.specular (1.0, 1.0, 1.0)
+poly.reflection (1.0, 1.0, 1.0)
+poly.flags (shadow|refl|bbox)
+
+var pts:ptarray
+pts.add (-7, -3, 0)
+pts.add ( 7, -3, 0)
+pts.add ( 7,  3, 0)
+pts.add (-7,  3, 0)
+poly.loadlattice pts
+
+var norm:unitvector = (0, 0, 1)
+poly.addpolycurve norm (newplane) [0, 1, 2, 3] null
+poly.complete
+
+var ang:doublearray = [ 160, 140, 120, 100, 80, 60, 40, 20 ]
+var len:doublearray = [ 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2 ]
+poly.extrude ang len true
+
+var rmap:string = "bd-reflect"
+poly.addreflectionmap rgb rmap
+
+poly.matrix.translate (0, 0, -2)

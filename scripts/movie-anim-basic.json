@@ -1,0 +1,5 @@
+{
+  "type": "matrix_rotate_y",
+  "beginValue": 0,
+  "endValue": 360
+}

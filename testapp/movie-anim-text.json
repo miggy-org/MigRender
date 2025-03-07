@@ -1,0 +1,21 @@
+{
+  "type": "matrix_translate",
+  "operation": "replace",
+  "interpolation": "spline",
+  "bias": 0.9,
+  "applyToStart": true,
+  "beginTime": 0,
+  "endTime": 1,
+  "beginValue": {
+    "class": "CPt",
+    "x": 0,
+    "y": 0,
+    "z": 60
+  },
+  "endValue": {
+    "class": "CPt",
+    "x": 0,
+    "y": 0,
+    "z": 0
+  }
+}

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/placeholder"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    android:orientation="vertical"
+    tools:context=".activity.OptionsActivity">
+
+    <view class="com.jordan.textrender.activity.OptionsActivity$OptionsPreview"
+        android:id="@+id/optionsPreview"
+        android:padding="2dp"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_margin="5dp"
+        android:src="@drawable/shape_grey_rectangle"
+        android:contentDescription="@string/preview_image" />
+
+    <FrameLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3"
+        tools:context="com.jordan.textrender.activity.OptionsActivity"
+        tools:ignore="MergeRootFrame" />
+
+</LinearLayout>

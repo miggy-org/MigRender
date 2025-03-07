@@ -1,0 +1,20 @@
+# light1
+var mainlt1 = super.newptlight
+mainlt1.color (0.6, 0.6, 0.6)
+mainlt1.origin (5, 8, 5)
+mainlt1.highlight 100
+mainlt1.shadow true true 3
+
+# light2
+var mainlt2 = super.newptlight
+mainlt2.color (0.4, 0.4, 0.4)
+mainlt2.origin (-5, 0, 5)
+mainlt2.highlight 100
+mainlt2.shadow true true 3
+
+# light3
+var mainlt3 = super.newptlight
+mainlt3.color (0.4, 0.4, 0.4)
+mainlt3.origin (-3, 8, 0)
+mainlt3.highlight 100
+mainlt3.shadow true true 3

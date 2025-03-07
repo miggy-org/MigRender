@@ -1,0 +1,45 @@
+# can be used by the calling process to configure the movie
+var width:int = 320
+var height:int = 240
+var frames:int = 150
+var suppressBitmaps:boolean = false
+#renderflags (all)
+
+# scene setup
+script "setup.txt"
+
+# lights
+script "lights-many.txt"
+
+# parent group
+var grp = super.newgroup
+
+# backdrop
+script "backdrop-slab.txt" grp
+
+# text group
+var subgrp = grp.newgroup
+var path:string = "..\models\times.pkg"
+loadtext path "JODI" subgrp "glyph-simple.txt" "b"
+subgrp.center
+subgrp.fit 10 0 0
+
+# position the text and slab
+grp.matrix.rotatez 30
+grp.matrix.rotatex -60
+grp.matrix.translate (0.5, 2, 0)
+
+# assign animations
+anims.load grp "movie-anim-slab.json"
+anims.load subgrp.grp1 "movie-anim-text.json" 0.0 0.5 true
+anims.load subgrp.grp2 "movie-anim-text.json" 0.1 0.6 true
+anims.load subgrp.grp3 "movie-anim-text.json" 0.2 0.7 true
+anims.load subgrp.grp4 "movie-anim-text.json" 0.3 0.8 true
+
+# fade
+#anims.load model "movie-anim-fade.json" 0.0 0.2
+#anims.load model "movie-anim-fade.json" 0.8 1.0 false true
+
+# fog
+#fog (1, 1, 1, 1) 14 15
+#anims.load model "movie-anim-fog.json"

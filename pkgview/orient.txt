@@ -1,0 +1,6 @@
+# assumes group "grp"
+grp.matrix.rotatez 30
+grp.matrix.rotatex -50
+#grp.matrix.rotatey 30
+grp.matrix.translate (0.5, 2, 0)
+#grp.matrix.translate (0, 0, 8)

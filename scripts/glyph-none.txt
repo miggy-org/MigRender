@@ -1,0 +1,7 @@
+# assumes group "grp", polygon "poly", uvc "uvmin", uvc "uvmax"
+var suffix:string = ""
+
+poly.diffuse (1, 1, 1)
+poly.specular (0.3, 0.3, 0.3)
+poly.reflection (1, 1, 1)
+poly.flags (bbox)

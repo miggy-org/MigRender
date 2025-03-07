@@ -1,0 +1,40 @@
+# can be used by the calling process to configure the movie
+var width:int = 320
+var height:int = 240
+var frames:int = 150
+var suppressBitmaps:boolean = false
+renderflags (refract)
+
+# scene setup
+script "setup.txt"
+
+# lights
+script "lights-many.txt"
+
+# earth map
+var map = images.load "$IMAGES\earth.jpg" rgba
+images.map.fillalphafromtransparentcolor 10 149 218 50 50 50 0
+
+# earth
+var sphere = super.newsphere
+sphere.origin (0, 0, 0)
+sphere.radius 1
+sphere.diffuse (1, 1, 1)
+sphere.specular (0.3, 0.3, 0.3)
+sphere.refraction (1, 1, 1, 1)
+sphere.flags (refr|bbox)
+sphere.addcolormap diffuse rgb map multiply
+#sphere.addtransparencymap alpha map
+sphere.addbumpmap alpha map 2 0
+sphere.matrix.scale (3, 3, 3)
+
+# assign animations
+anims.load sphere "movie-anim-basic.json"
+
+# fade
+#anims.load model "movie-anim-fade.json" 0.0 0.2
+#anims.load model "movie-anim-fade.json" 0.8 1.0 false true
+
+# fog
+#fog (1, 1, 1, 1) 14 15
+#anims.load model "movie-anim-fog.json"
